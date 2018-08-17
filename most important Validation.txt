@@ -1,0 +1,193 @@
+input validation 
+
+This function allow only a A 0-9
+oninput="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'');"
+
+This function allow only  0-9
+oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+
+This function allow only  a-z
+oninput="this.value=this.value.replace(/[^a-z]/g,'');"
+
+This function allow only  A-Z
+oninput="this.value=this.value.replace(/[^A-Z]/g,'');"
+
+This function allow only  A-Z a-z and space
+oninput="this.value=this.value.replace(/[^A-Z a-z]/g,'');"
+
+This function allow only  A-Z a-z and space and 0-9
+oninput="this.value=this.value.replace(/[^A-Z a-z0-9]/g,'');"
+
+
+EMAIL VALIDATION--------------------------------------------------------------------------------------
+
+function emailvalidation() 
+{
+    var x = $("#email").val();
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        alert("Not a valid e-mail address");
+     
+       		return false;
+        }
+        else
+        {
+        	return true;
+        }
+    }
+-------------------------------------------------------------------------------------------------------
+
+DATE VAlIDATION----------------------------------------------------------------------------------------
+
+
+function isValidDate()
+	{
+		var dob= $("#dob").val();
+	 	if (dob.match(/^(?:(0[1-9]|1[012])[\- \.](0[1-9]|[12][0-9]|3[01])[\- \.](19|20)[0-9]{2})$/))
+	    	return true;
+	    else
+	    	return false;
+	}
+-------------------------------------------------------------------------------------------------------
+
+DATE  TO FROM VALIDATION---------------------------------------------------------------------------------
+function dateTOFROM()
+{
+	var dateCheck=$("#dob").val();  //GET DATE FROM TEXT BOX
+	var dateFrom = "02-05-2017";
+	var dateTo = "02-09-2017";
+	//var dateCheck = "02-07-2017";
+	
+	var d1 = dateFrom.split("-");
+	var d2 = dateTo.split("-");
+	var c = dateCheck.split("-");
+	
+	var from = new Date(d1[2], parseInt(d1[1])-1, d1[0]);  // -1 because months are from 0 to 11
+	var to   = new Date(d2[2], parseInt(d2[1])-1, d2[0]);
+	var check = new Date(c[2], parseInt(c[1])-1, c[0]);
+	
+	console.log(check > from && check < to);
+	if(check > from && check < to)
+		return true;
+	else
+		return false;
+}
+
+VALIDATION TEXT BOX========
+=============================================
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Can Validate Input</h2>
+
+<p>Please input a number between 1 and 10:</p>
+
+<input id="numb">
+
+<button type="button" onclick="myFunction()">Submit</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var x, text;
+
+    // Get the value of the input field with id="numb"
+    x = document.getElementById("numb").value;
+
+    // If x is Not a Number or less than one or greater than 10
+    if (isNaN(x) || x < 1 || x > 10) {
+        text = "Input not valid";
+    } else {
+        text = "Input OK";
+    }
+    document.getElementById("demo").innerHTML = text;
+}
+</script>
+
+</body>
+</html> 
+-----------------
+|	   |
+-----------------
+ WORNG PASSWORD ENTER========================
+
+
+
+-------------------------------------------------------------
+new
+<script type="text/javascript" language="javascript">
+function checkfile(sender) {
+    var validExts = new Array(".xlsx", ".xls", ".csv");
+    var fileExt = sender.value;
+    fileExt = fileExt.substring(fileExt.lastIndexOf('.'));
+    if (validExts.indexOf(fileExt) < 0) {
+      alert("Invalid file selected, valid files are of " +
+               validExts.toString() + " types.");
+      return false;
+    }
+    else return true;
+}
+</script>
+
+<input type="file" id="file" onchange="checkfile(this);" />
+
+
+
+========================================
+
+alert("GET DEPT ID"+id);
+var rowindex = $("#Edite"+id).closest("tr").index();
+var row  =rowindex+1;
+
+
+console.log($("tr:eq("+row+") td:eq(1)").text());
+		 console.log($("tr:eq("+row+") td:eq(2)").text());
+		 console.log($("tr:eq("+row+") td:eq(3)").text());
+		 console.log($("tr:eq("+row+") td:eq(4)").text());
+		 console.log($("tr:eq("+row+") td:eq(5)").text());
+		 console.log($("tr:eq("+row+") td:eq(6)").text());
+		 console.log($("tr:eq("+row+") td:eq(7)").text());
+		 console.log($("tr:eq("+row+") td:eq(8)").text());
+
+
+
+
+==================================================================
+
+
+
+html>
+    <head>
+    <script>
+       function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [day, month, year].join('-');
+}
+        
+        function date123()
+        {
+           var d1 = new Date();
+           alert(formatDate(d1));
+            
+        }
+</script>
+    </head>
+
+
+<button onclick="date123()"/>
+
+
+
+</body>
+</html>
